@@ -5,7 +5,7 @@
 using namespace std;
 
 
-bitset<32> complemento_2(bitset<32> num)
+bitset<4> complemento_2(bitset<4> num)
 {
 	bool carry = 1;
 	for (int i = 0; i < num.size(); i++)
@@ -23,7 +23,7 @@ bitset<32> complemento_2(bitset<32> num)
 
 
 
-bitset<32> izquierda(bitset<32> num)
+bitset<4> izquierda(bitset<4> num)
 {
 	bool sign = num[num.size() - 1]; num >>= 1;
 	num[num.size() - 1] = sign;
@@ -31,9 +31,9 @@ bitset<32> izquierda(bitset<32> num)
 	return num;
 }
 
-bitset<32> suma_b(bitset<32> a, bitset<32> b)
+bitset<4> suma_b(bitset<4> a, bitset<4> b)
 {
-	bitset<32> res; bool carr = 0;
+	bitset<4> res; bool carr = 0;
 	for (int i = 0; i < a.size(); i++)
 	{
 		bool sum = a[i] ^ b[i] ^ carr;
@@ -50,7 +50,7 @@ int main()
 	int n;
 	cout << "Ingrese la cantidad de bits (n): "; cin >> n;
 
-	bitset<32> multi, Q, q_1;
+	bitset<4> multi, Q, q_1;
 	cout << "Ingrese el multiplicando: "; cin >> multi;
 	cout << "Ingrese el multiplicador: "; cin >> Q;
 
@@ -61,7 +61,7 @@ int main()
 		q_1[i] = 0;
 	}
 
-	bitset<32> A;
+	bitset<4> A;
 	for (int i = 0; i < n; i++)
 	{
 		if (Q[0] == 1 && q_1[0] == 0)
